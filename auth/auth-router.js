@@ -26,7 +26,7 @@ router.post('/register', (req, res) => {
           res.status(500).json({error: error.message})
         })
   } else {
-    res.status(400).json({message: 'please provide username and password - password should be alphanumeric'})
+    res.status(400).json({message: 'please provide email and password - password should be alphanumeric'})
   }
 });
 
@@ -64,7 +64,7 @@ router.post('/login', (req, res) => {
               res.status(500).json({error: error})
           })
   } else {
-      res.status(400).json({message: "Please provide your username and password."})
+      res.status(400).json({message: "Please provide your email and password."})
   }
 });
 
