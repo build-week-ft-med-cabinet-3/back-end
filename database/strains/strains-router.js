@@ -15,19 +15,34 @@ router.post('/', (req, res) => {
 
 })
 
+
 router.get('/', (req, res) => {
 
-    Strains.find().where({user_id: req.params.id})
+    Strains.find()
         .then(strains => {
-            res.status(200).json({data: strains})
+            res.status(200).json(strains.filter(strain => {
+                return strain.user_id === req.jwt.id
+            }))
         })
-        .catch(err => {
-            res.status(500).json({error: err})
-        })
-
+        .catch(err => res.send(err))
 })
 
+
+// router.get('/', (req, res) => {
+
+//     Strains.find()
+//         .then(strains => {
+//             res.status(200).json({data: strains})
+//         })
+//         .catch(err => {
+//             res.status(500).json({error: err.message})
+//         })
+
+// })
+
 router.delete('/:id', (req, res) => {
+
+    const {id} = req.params
 
     Strains.remove(id)
     .then(deleted => {
