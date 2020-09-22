@@ -31,6 +31,16 @@ router.post('/register', (req, res) => {
 });
 
 
+router.get('/', (req, res) => {
+
+    Users.find()
+        .then(users => {
+            res.status(200).json(users)
+        })
+
+})
+
+
 
 router.post('/login', (req, res) => {
   
@@ -59,7 +69,7 @@ router.post('/login', (req, res) => {
 });
 
 
-router.put('login/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
   
@@ -80,7 +90,7 @@ router.put('login/:id', (req, res) => {
 });
 
 
-router.delete('login/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
 
     const {id} = req.params
 
