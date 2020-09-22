@@ -28,17 +28,6 @@ router.get('/', (req, res) => {
 })
 
 
-// router.get('/', (req, res) => {
-
-//     Strains.find()
-//         .then(strains => {
-//             res.status(200).json({data: strains})
-//         })
-//         .catch(err => {
-//             res.status(500).json({error: err.message})
-//         })
-
-// })
 
 router.delete('/:id', (req, res) => {
 
