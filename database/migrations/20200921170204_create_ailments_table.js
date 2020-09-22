@@ -9,7 +9,7 @@ exports.up = function(knex) {
                 .notNullable()
                 .references('id').inTable('users')
                 .onUpdate('CASCADE')
-                .onDelete('RESTRICT')
+                .onDelete('CASCADE')
             tbl.boolean('cramps')
             tbl.boolean('depression')
             tbl.boolean('eye-pressure')
