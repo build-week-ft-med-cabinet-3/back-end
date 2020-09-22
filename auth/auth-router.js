@@ -34,10 +34,10 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
   
-  const { username, password } = req.body
+  const { email, password } = req.body
 
   if (isValid(req.body)) {
-      Users.findBy({username: username})
+      Users.findBy({email: email})
           .then(([user]) => {
               // console.log(user)
               if (user && bcryptjs.compareSync(password, user.password)) {
@@ -88,7 +88,7 @@ router.put('/:id', (req, res) => {
 function makeJwt(user) {
 
   const payload = {
-      username: user.username,
+      email: user.email,
   }
 
   const config = {
