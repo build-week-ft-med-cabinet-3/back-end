@@ -118,6 +118,7 @@ function makeJwt(user) {
 
   const payload = {
       email: user.email,
+      id: user.id
   }
 
   const config = {
