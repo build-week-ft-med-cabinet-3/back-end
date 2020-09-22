@@ -59,14 +59,14 @@ router.post('/login', (req, res) => {
 });
 
 
-router.put('/:id', (req, res) => {
+router.put('login/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
   
     Users.findById(id)
     .then(user => {
       if (user) {
-        Schemes.update(changes, id)
+        Users.update(changes, id)
         .then(updatedUser => {
           res.json(updatedUser);
         });
@@ -80,7 +80,7 @@ router.put('/:id', (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
+router.delete('login/:id', (req, res) => {
 
     const {id} = req.params
 
