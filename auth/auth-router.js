@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken")
 
 const Users = require("../database/users-model");
 
+const restricted = require("./authenticate-middleware")
+
 
 
 router.post('/register', (req, res) => {
@@ -31,7 +33,7 @@ router.post('/register', (req, res) => {
 });
 
 
-router.get('/', (req, res) => {
+router.get('/', restricted, (req, res) => {
 
     Users.find()
         .then(users => {

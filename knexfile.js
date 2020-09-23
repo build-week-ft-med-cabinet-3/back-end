@@ -35,10 +35,10 @@ module.exports = {
       },
     },
     migrations: {
-      directory: './database/test-migrations' 
+      directory: './database/migrations' 
     },
     seeds: {
-      directory: './database/test-seeds'
+      directory: './database/seeds'
     }
   },
 
