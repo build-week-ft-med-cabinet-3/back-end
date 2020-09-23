@@ -13,7 +13,7 @@ describe('server operations', () => {
         it('should return HTTP status code 201 when passed correct data', async () => {
             return supertest(server)
                 .post('/api/auth/register')
-                .send({ email: 'tahilyy@bp.com', password: 'pass' })
+                .send({ email: 'tahilyyy@bp.com', password: 'pass' })
                 .then(res => {
                     
                     expect(res.status).toBe(201)
@@ -24,10 +24,21 @@ describe('server operations', () => {
 
             return supertest(server)
                 .post('/api/auth/register')
-                .send({ email: 'testy@test.com', password: 'pass' })
+                .send({ email: 'testyy@test.com', password: 'pass' })
                 .then(res => {
                     console.log(res.body)
-                    expect(res.body.data.email).toBe('testy@test.com') 
+                    expect(res.body.data.email).toBe('testyy@test.com') 
+                })
+        })
+
+        it('should return status code 400 if not all info provided', () => {
+
+            return supertest(server)
+                .post('/api/auth/register')
+                .send({ email: '', password: 'pass' })
+                .then(res => {
+                    // console.log(res.body)
+                    expect(res.status).toBe(400) 
                 })
         })
 
