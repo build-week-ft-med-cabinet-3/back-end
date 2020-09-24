@@ -12,6 +12,7 @@ exports.up = function(knex) {
                 .onUpdate('CASCADE')
                 .onDelete('CASCADE')
             tbl.string('name')
+            tbl.string('description')
             tbl.string('type')
             tbl.string('flavors')
             tbl.string('postive_effects')
