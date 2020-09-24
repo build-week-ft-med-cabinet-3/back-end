@@ -2,19 +2,27 @@ const router = require('express').Router();
 
 const bcryptjs = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+
 const cors = require('cors');
+
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200 
+}
+
+router.use(cors(corsOptions));
+
 
 const Users = require("../database/users-model");
 
 const restricted = require("./authenticate-middleware")
 
-router.use(cors());
 
-router.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// router.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
   
 
 router.post('/register', (req, res) => {

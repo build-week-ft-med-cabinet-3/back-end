@@ -1,5 +1,15 @@
 const router = require('express').Router();
 
+const cors = require('cors');
+
+
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200 
+}
+
+router.use(cors(corsOptions));
+
 const Strains = require("./strains-model");
 
 
