@@ -81,7 +81,7 @@ router.post('/login', (req, res) => {
 // })
 
 
-router.put('/:id', (req, res) => {
+router.put('/:id', restricted, (req, res) => {
     const { id } = req.params;
     const changes = req.body;
   
@@ -102,7 +102,7 @@ router.put('/:id', (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', restricted, (req, res) => {
 
     const {id} = req.params
 
