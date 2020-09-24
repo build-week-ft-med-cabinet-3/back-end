@@ -20,9 +20,15 @@ router.get('/', (req, res) => {
 
     Strains.find()
         .then(strains => {
-            res.status(200).json(strains.filter(strain => {
+            if (!strains[0]) {
+                return res.status(200).json({message: 'There are no saved strains'})
+            } else {
+                res.status(200).json(strains.filter(strain => {
                 return strain.user_id === req.jwt.id
-            }))
+                }))
+            }
+
+           
         })
         .catch(err => res.send(err))
 })
