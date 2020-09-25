@@ -98,9 +98,16 @@ router.put('/:id', restricted, (req, res) => {
     Users.findById(id)
     .then(user => {
       if (user) {
+
+        const rounds = process.env.BCRYPT_ROUNDS || 8
+        const hash = bcryptjs.hashSync(changes.password, rounds)
+
+        changes.password = hash
+
+
         Users.update(changes, id)
-        .then(updatedUser => {
-          res.json(updatedUser);
+        .then(number => {
+          res.json({message: `${number} user(s) updated.`});
         });
       } else {
         res.status(404).json({ message: 'Could not find user with given id' });
