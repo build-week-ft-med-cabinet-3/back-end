@@ -25,22 +25,22 @@ https://medswap.herokuapp.com/api/savedstrains/:id | DELETE - need token
 ## Installation
 Npm packages used in this project, that would need to be installed are:
 For dependencies:
-    - bcryptjs - for hashing passwords
-    - cors - for security on who accesses the database
-    - dotenv - for working with different environments
-    - express - for making server
-    - helmet - for security
-    - jsonwebtoken - for using tokens for login
-    - knex - for making the database
-    - knex-cleaner - for cleaning seeds
-    - pg - postgres for production environment
-    - sqlite3 - for the database in development environment
+    1. bcryptjs - for hashing passwords
+    2. cors - for security on who accesses the database
+    3. dotenv - for working with different environments
+    4. express - for making server
+    5. helmet - for security
+    6. jsonwebtoken - for using tokens for login
+    7. knex - for making the database
+    8. knex-cleaner - for cleaning seeds
+    9. pg - postgres for production environment
+    10. sqlite3 - for the database in development environment
 
 And devDependencies:
-    - cross-env - for different environments
-    - jest - for running tests
-    - nodemon - for automatically updating server on changes
-    - supertest - for testing the API 
+    1. cross-env - for different environments
+    2. jest - for running tests
+    3. nodemon - for automatically updating server on changes
+    4. supertest - for testing the API 
 
 ## Usage
 See description above of how this backend is used in an app
