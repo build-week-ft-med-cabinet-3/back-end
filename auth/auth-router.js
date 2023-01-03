@@ -82,7 +82,7 @@ router.post('/login', (req, res) => {
               res.status(500).json({error: error})
           })
   } else {
-      res.status(400).json({message: "Please provide your email and password."})
+      res.status(400).json({message: "Please provide your email and password..."})
   }
 });
 
